@@ -1,13 +1,13 @@
-SIMULATION AND IMPLEMENTATION OF  COMBINATIONAL LOGIC CIRCUITS
+# SIMULATION AND IMPLEMENTATION OF  COMBINATIONAL LOGIC CIRCUITS
 
-AIM: 
+## AIM: 
  To simulate and synthesis ENCODER, DECODER, MULTIPLEXER, DEMULTIPLEXER, MAGNITUDE COMPARATOR using Xilinx ISE.
 
-APPARATUS REQUIRED:
+## APPARATUS REQUIRED:
 Xilinx 14.7
 Spartan6 FPGA
 
-PROCEDURE:
+## PROCEDURE:
 STEP:1  Start  the Xilinx navigator, Select and Name the New project.
 STEP:2  Select the device family, device, package and speed.       
 STEP:3  Select new source in the New Project and select Verilog Module as the Source type.                       
@@ -20,9 +20,9 @@ STEP:9  In the Design Object List Window, enter the pin location for each pin in
 STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here.
 STEP:11  On the board, by giving required input, the LEDs starts to glow light, indicating the output.
 
-# LOGIC DIAGRAM
+## LOGIC DIAGRAM
 
-# ENCODER
+## ENCODER
 ![301734849-3cd1f95e-7531-4cad-9154-fdd397ac439e](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/e0686f04-ab98-4b23-b0f7-7bfd04004b32)
 
 **verilog code**
@@ -41,7 +41,7 @@ endmodule
 ![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/bb5f006f-7d03-4b69-b53e-2c7137f37078)
 
 
-# DECODER
+## DECODER
 ![301735010-45a5e6cf-bbe0-4fd5-ac84-e5ad4477483b](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/4a43503a-8dd4-4968-a06c-359e67030439)
 
 **verilog code**
@@ -64,7 +64,7 @@ endmodule
 ![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/3876ae67-0348-4adb-9a02-7f7fe3a8685d)
 
 
-# MULTIPLEXER
+## MULTIPLEXER
 ![301735287-427f75b2-8e67-44b9-ac45-a66651787436](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/f2b7c963-4b8a-4ae6-918e-81248613eec5)
 
 **verilog code**
@@ -93,7 +93,7 @@ endmodule
 **output**
 ![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/b3dcf51a-8c58-4974-9121-d3d767478039)
 
-# DEMULTIPLEXER
+## DEMULTIPLEXER
 ![301735386-1c45a7fc-08ac-4f76-87f2-c084e7150557](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/6dcb6ced-2602-4d6d-951e-3a8c22a279f7)
 
 **verilog code**
@@ -121,7 +121,7 @@ endmodule
 
 ![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/c93adfdf-94b4-4431-abbb-e43a407a8366)
 
-# MAGNITUDE COMPARATOR
+## MAGNITUDE COMPARATOR
 ![301735522-b2fe7a05-6bf7-4dcb-8f5d-28abbf7ea8c2](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/ca9b5ed3-9b51-480a-889e-9474be9e35a1)
 
 **verilog code**
@@ -158,6 +158,6 @@ endmodule
 ![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/f736b3d3-95b9-486b-87ce-69bb1322d1ce)
 
 
-# RESULT
+## RESULT
 Thus the Encoder, Decoder, Multiplexer, Demultiplexer and Magnitude Comparator are Synthesis and stimulated Successfully Using Xilinx ISE.
 
