@@ -27,16 +27,22 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 **verilog code**
 ~~~
-module encoder(a,y);
-input [7:0]a;
-output[2:0]y;
-or(y[2],a[6],a[5],a[4],a[3]);
-or(y[1],a[6],a[5],a[2],a[1]);
-or(y[0],a[6],a[4],a[2],a[0]);
+module decoder(a,y);
+input [2:0]a;
+output [7:0]y;
+and g4(y[0],~a[2],~a[1],~a[0]);
+and g5(y[1],~a[2],~a[1],a[0]);
+and g6(y[2],~a[2],a[1],~a[0]);
+and g7(y[3],~a[2],a[1],a[0]);
+and g8(y[4],a[2],~a[1],~a[0]);
+and g9(y[5],a[2],~a[1],a[0]);
+and g10(y[6],a[2],a[1],~a[0]);
+and g11(y[7],a[2],a[1],a[0]);
 endmodule
+
 ~~~
 **output**
-![318353110-a7497d75-f686-43b8-9357-69e59e14eea1](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/b2cb2f7d-c92a-47ec-a900-19bd3b3b0da3)
+![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/3152696e-e85f-4f5b-b8b7-865affa09b2d)
 
 
 # DECODER
@@ -44,21 +50,22 @@ endmodule
 
 **verilog code**
 ~~~
-module decoder1(a,y);
+module decoder(a,y);
 input [2:0]a;
-output[7:0]y;
-and(y[0],~a[2],~a[1],~a[0]);
-and(y[1],~a[2],~a[1],a[0]);
-and(y[2],~a[2],a[1],~a[0]);
-and(y[3],~a[2],a[1],a[0]);
-and(y[4],a[2],~a[1],~a[0]);
-and(y[5],a[2],~a[1],a[0]);
-and(y[6],a[2],a[1],~a[0]);
-and(y[7],a[2],a[1],a[0]);
+output [7:0]y;
+and g4(y[0],~a[2],~a[1],~a[0]);
+and g5(y[1],~a[2],~a[1],a[0]);
+and g6(y[2],~a[2],a[1],~a[0]);
+and g7(y[3],~a[2],a[1],a[0]);
+and g8(y[4],a[2],~a[1],~a[0]);
+and g9(y[5],a[2],~a[1],a[0]);
+and g10(y[6],a[2],a[1],~a[0]);
+and g11(y[7],a[2],a[1],a[0]);
 endmodule
+
 ~~~
 **output**
-![318353325-5f78d343-fc3a-4c1e-bfcf-f85bcc58a6e9](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/6e158ab1-eca6-450b-b59e-a212e33a3e43)
+![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/3876ae67-0348-4adb-9a02-7f7fe3a8685d)
 
 
 # MULTIPLEXER
@@ -66,84 +73,95 @@ endmodule
 
 **verilog code**
 ~~~
-module mux(s,c,a);
+module multiplexer(d,s,y);
+input [7:0]d;
 input [2:0]s;
-input [7:0]a;
-wire [7:0]w;
-output c;
-and(w[0],a[0],~s[2],~s[1],~s[0]);
-and(w[1],a[1],~s[2],~s[1],s[0]);
-and(w[2],a[2],~s[2],s[1],~s[0]);
-and(w[3],a[3],~s[2],s[1],s[0]);
-and(w[4],a[4],s[2],~s[1],~s[0]);
-and(w[5],a[5],s[2],~s[1],s[0]);
-and(w[6],a[6],s[2],s[1],~s[0]);
-and(w[7],a[7],s[2],s[1],s[0]);
-or (c,w[0],w[1],w[2],w[3],w[4],w[5],w[6],w[7]);
+output y;
+wire w0,w1,w2;
+wire x0,x1,x2,x3,x4,x5,x6,x7;
+not g1(w0,s[0]);
+not g2(w1,s[1]);
+not g3(w2,s[2]);
+and g4(x0,d[0],w0,w1,w2);
+and g5(x1,d[1],w0,w1,s[2]);
+and g6(x2,d[2],w0,s[1],w2);
+and g7(x3,d[3],w0,s[1],s[2]);
+and g8(x4,d[4],s[0],w1,w2);
+and g9(x5,d[5],s[0],w1,s[2]);
+and g10(x6,d[6],s[0],s[1],w2);
+and g11(x7,d[7],s[0],s[1],s[2]);
+or g12(y,x0,x1,x2,x3,x4,x5,x6,x7);
 endmodule
+
 ~~~
 **output**
-![318358035-5768add5-fee5-4c52-91c3-e3e3e72aa3ed](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/766970e9-975e-478f-8ab1-8c5df2c24ad9)
-
+![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/b3dcf51a-8c58-4974-9121-d3d767478039)
 
 # DEMULTIPLEXER
 ![301735386-1c45a7fc-08ac-4f76-87f2-c084e7150557](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/6dcb6ced-2602-4d6d-951e-3a8c22a279f7)
 
 **verilog code**
 ~~~
-module demux_8(s,a,y);
+module demux(d,s,y);
+input d;
 input [2:0]s;
-input a;
 output [7:0]y;
-and(y[0],a,~s[2],~s[1],~s[0]);
-and(y[1],a,~s[2],~s[1],s[0]);
-and(y[2],a,~s[2],s[1],~s[0]);
-and(y[3],a,~s[2],s[1],s[0]);
-and(y[4],a,s[2],~s[1],~s[0]);
-and(y[5],a,s[2],~s[1],s[0]);
-and(y[6],a,s[2],s[1],~s[0]);
-and(y[7],a,s[2],s[1],s[0]);
+wire w0,w1,w2;
+not g1(w0,s[0]);
+not g2(w1,s[1]);
+not g3(w2,s[2]);
+and g4(y[0],d,w0,w1,w2);
+and g5(y[1],d,s[0],w1,w2);
+and g6(y[2],d,w0,s[1],w2);
+and g7(y[3],d,s[0],s[1],w2);
+and g8(y[4],d,w0,w1,s[2]);
+and g9(y[5],d,s[0],w1,s[2]);
+and g10(y[6],d,w0,s[1],s[2]);
+and g11(y[7],d,s[0],s[1],s[2]);
 endmodule
+
 ~~~
 **output**
-![318358386-559774ba-65c5-4eeb-9d5f-452ea3b27c29](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/be30677f-15b5-4fc7-b9ec-3ec305974ccc)
 
+![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/c93adfdf-94b4-4431-abbb-e43a407a8366)
 
 # MAGNITUDE COMPARATOR
 ![301735522-b2fe7a05-6bf7-4dcb-8f5d-28abbf7ea8c2](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/ca9b5ed3-9b51-480a-889e-9474be9e35a1)
 
 **verilog code**
 ~~~
-module comparator(a,b,eq,lt,gt);
-input [3:0] a,b;
-output reg eq,lt,gt;
-always @(a,b)
+
+module comparator(a,b,gr,lt,eq);
+input [1:0]a,b;
+output reg gr,lt,eq;
+always @(*)
 begin
- if (a==b)
- begin
-  eq = 1'b1;
-  lt = 1'b0;
-  gt = 1'b0;
- end
- else if (a>b)
- begin
-  eq = 1'b0;
-  lt = 1'b0;
-  gt = 1'b1;
- end
- else
- begin
-  eq = 1'b0;
-  lt = 1'b1;
-  gt = 1'b0;
- end
-end 
+if (a>b)
+begin
+gr=1'b1;
+lt=1'b0;
+eq=1'b0;
+end
+else if(a<b)
+begin
+gr=1'b0;
+lt=1'b1;
+eq=1'b0;
+end
+else
+begin
+gr=1'b0;
+lt=1'b0;
+eq=1'b1;
+end
+end
 endmodule
+
 ~~~
 **output**
-![318358593-4a9e2670-3a8d-42fd-a755-f728c5a36b45](https://github.com/Jayanth-T/VLSI-LAB-EXP-2/assets/106177371/3b0a314f-3c1d-4e68-8284-020d02ebb8ef)
+![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/f736b3d3-95b9-486b-87ce-69bb1322d1ce)
 
 
 # RESULT
-Simulation and synthesis ENCODER, DECODER, MULTIPLEXER, DEMULTIPLEXER, MAGNITUDE COMPARATOR using Xilinx ISE is verified.
+Thus the Encoder, Decoder, Multiplexer, Demultiplexer and Magnitude Comparator are Synthesis and stimulated Successfully Using Xilinx ISE.
 
