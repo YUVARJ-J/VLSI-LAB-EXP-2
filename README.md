@@ -27,22 +27,18 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 **verilog code**
 ~~~
-module decoder(a,y);
-input [2:0]a;
-output [7:0]y;
-and g4(y[0],~a[2],~a[1],~a[0]);
-and g5(y[1],~a[2],~a[1],a[0]);
-and g6(y[2],~a[2],a[1],~a[0]);
-and g7(y[3],~a[2],a[1],a[0]);
-and g8(y[4],a[2],~a[1],~a[0]);
-and g9(y[5],a[2],~a[1],a[0]);
-and g10(y[6],a[2],a[1],~a[0]);
-and g11(y[7],a[2],a[1],a[0]);
+module encoder(y,a);
+input [7:0]y;
+output [2:0]a;
+or g1(a[0],y[1],y[3],y[5],y[7]);
+or g2(a[1],y[2],y[3],y[6],y[7]);
+or g3(a[2],y[4],y[5],y[6],y[7]);
 endmodule
+
 
 ~~~
 **output**
-![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/3152696e-e85f-4f5b-b8b7-865affa09b2d)
+![image](https://github.com/YUVARJ-J/VLSI-LAB-EXP-2/assets/161425982/bb5f006f-7d03-4b69-b53e-2c7137f37078)
 
 
 # DECODER
